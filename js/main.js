@@ -16,18 +16,16 @@ const app = new Vue({
     remove(e) {
       this.tasks.splice(e, 1);
       this.text = "";
+      
     },
 
     color(i) {
       if (this.toggle[i] == false) {
-        this.toggle[i] = true;
+        this.toggle.splice(i, 1, true);
       } else {
-        this.toggle[i] = false;
+        this.toggle.splice(i,1,false);
       }
-
-      console.log(this.toggle[i]);
-      console.log(this.toggle);
-      return this.toggle[i];
+      console.log(this.toggle)
     },
   },
 });

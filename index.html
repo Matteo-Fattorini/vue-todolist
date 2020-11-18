@@ -40,8 +40,8 @@
         </header>
         <main :class="{display:tasks.length>0}">
           <ul>
-            <li  @click="color(i)" v-for="n, i in tasks.length">
-              {{tasks[n-1]}} <button class= removeBtn @click="remove(i)">X</button>
+            <li  @click="color(i)" v-for="(n, i) in tasks" :class ="{color:toggle[i]}">
+              {{tasks[i]}} <button class= removeBtn @click="remove(i)">X</button>
             </li>
           </ul>
         </main>
