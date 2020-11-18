@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+
+    <!-- CSS Frameworks -->
+
+    <!-- Font Awesome 5.15.1 (CDN) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
+
+    <!-- Custom CSS -->
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script defer src="js/main.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div id="main">
+      <div class="container">
+        <header>
+          <div class="image-container">
+            <img
+              src="https://www.boolean.careers/images/misc/logo.png"
+              alt=""
+            />
+          </div>
+          <div class="input-container">
+            <input v-model="text" placeholder="Nuovo todo" type="text" />
+            <button v-on:click="push()" id="addBtn">Aggiungi</button>
+          </div>
+        </header>
+        <main :class="{display:tasks.length>0}">
+          <ul>
+            <li  @click="color(i)" v-for="n, i in tasks.length"  :class ="{color:(toggle[0] == true)}">
+              {{tasks[n-1]}} <button class= removeBtn @click="remove(i)">X</button>
+            </li>
+          </ul>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
