@@ -15,6 +15,7 @@ const app = new Vue({
     },
     remove(e) {
       this.tasks.splice(e, 1);
+      this.toggle.splice(e, 1);
       this.text = "";
       
     },
@@ -25,7 +26,7 @@ const app = new Vue({
       } else {
         this.toggle.splice(i,1,false);
       }
-      console.log(this.toggle)
+     
     },
   },
 });

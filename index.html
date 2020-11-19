@@ -34,14 +34,14 @@
             />
           </div>
           <div class="input-container">
-            <input v-model="text" placeholder="Nuovo todo" type="text" />
+            <input v-on:keydown.enter="push()" v-model="text" placeholder="Nuovo todo" type="text" />
             <button v-on:click="push()" id="addBtn">Aggiungi</button>
           </div>
         </header>
         <main :class="{display:tasks.length>0}">
           <ul>
             <li  @click="color(i)" v-for="(n, i) in tasks" :class ="{color:toggle[i]}">
-              {{tasks[i]}} <button class= removeBtn @click="remove(i)">X</button>
+              {{tasks[i]}} <button class= removeBtn @click.stop="remove(i)">X</button>
             </li>
           </ul>
         </main>
